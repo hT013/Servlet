@@ -41,23 +41,19 @@
     <finalName>WebProject</finalName>
     <pluginManagement>
   <plugins>
-    <!-- <plugin>
+    <plugin>
       <groupId>org.apache.tomcat.maven</groupId>
       <artifactId>tomcat7-maven-plugin</artifactId>
       <version>2.2</version>
         <configuration>
-          <url>http://localhost:8080/manager/text</url>
+        <port>9090</port> 
+          <!-- <url>http://localhost:8080/manager/text</url>
           <server>TomcatServer</server>
-          <path>/WebProject</path>
+          <path>/WebProject</path> -->
       </configuration>
-    </plugin> -->
-
-    <plugin>
-      <groupId>org.eclipse.jetty</groupId>
-      <artifactId>jetty-maven-plugin</artifactId>
-      <version>9.4.27.v20200227</version>
     </plugin>
-  </plugins>
+    
+  </plugins> 
 </pluginManagement>
   </build>
 </project>

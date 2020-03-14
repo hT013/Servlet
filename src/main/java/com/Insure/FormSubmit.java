@@ -19,11 +19,13 @@ public class FormSubmit extends HttpServlet {
         contactForm.setEmail(request.getParameter("email"));
         contactForm.setMessage(request.getParameter("message"));
 
-        EntityManagerFactory emf= Persistence.createEntityManagerFactory("Form");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Form");
         EntityManager em = emf.createEntityManager();
+
         em.getTransaction().begin();
         em.persist(contactForm);
         em.getTransaction().commit();
+
         em.close();
         emf.close();
     }
