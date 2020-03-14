@@ -46,10 +46,10 @@
       <artifactId>tomcat7-maven-plugin</artifactId>
       <version>2.2</version>
         <configuration>
-        <port>9090</port> 
-          <!-- <url>http://localhost:8080/manager/text</url>
+        <!-- <port>9090</port>  -->
+          <url>http://localhost:8080/manager/text</url>
           <server>TomcatServer</server>
-          <path>/WebProject</path> -->
+          <path>/WebProject</path>
       </configuration>
     </plugin>
     
