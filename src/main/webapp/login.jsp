@@ -14,7 +14,7 @@
                 <input type="submit" id="sub-button" value="Log In"></input>
             </div>
             <div class="link-class">
-                <p class="text">Doesn't have an account? <a href="signin.jsp" class="link">Sign In</a></p>
+                <p class="text">Doesn't have an account? <a href="signup.jsp" class="link">Sign Up</a></p>
             </div>
         </form>
     </div>

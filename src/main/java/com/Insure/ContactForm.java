@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class ContactForm {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String fname;
     private String lname;

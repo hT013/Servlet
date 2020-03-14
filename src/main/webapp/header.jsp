@@ -34,7 +34,7 @@
             <a class="menu-list-val" href="#">ACCOUNT</a>
             <button class="menu-list-button" type="button">VIEW PLANS</button>
             <hr class="hr-header">
-            <a class="cred-button" href="signin.jsp">SIGN IN</a>
+            <a class="cred-button" href="signup.jsp">SIGN UP</a>
             <a class="cred-button" href="login.jsp">LOG IN</a>
         </div>
         <div id="hamburger-menu">
