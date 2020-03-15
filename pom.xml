@@ -8,6 +8,7 @@
   <name>WebProject Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -41,18 +42,31 @@
     <finalName>WebProject</finalName>
     <pluginManagement>
   <plugins>
-    <plugin>
+    <!-- <plugin>
       <groupId>org.apache.tomcat.maven</groupId>
       <artifactId>tomcat7-maven-plugin</artifactId>
       <version>2.2</version>
         <configuration>
-        <!-- <port>9090</port>  -->
-          <url>http://localhost:8080/manager/text</url>
+        <port>9090</port> 
+           <url>http://localhost:8080/manager/text</url>
           <server>TomcatServer</server>
-          <path>/WebProject</path>
+          <path>/WebProject</path> 
       </configuration>
-    </plugin>
+    </plugin> -->
     
+    <plugin>
+  <groupId>org.codehaus.cargo</groupId>
+  <artifactId>cargo-maven2-plugin</artifactId>
+  <version>1.7.6</version>
+  <configuration>
+  <port>9090</port> 
+    <container>
+      <containerId>tomcat9x</containerId>
+      <type>embedded</type>
+    </container>
+  </configuration>
+</plugin>
+
   </plugins> 
 </pluginManagement>
   </build>

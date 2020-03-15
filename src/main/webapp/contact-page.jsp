@@ -15,6 +15,19 @@
                 <input type="text" id="email" placeholder="E mail" name="email">
                 <textarea type="text" id="message" placeholder="Message" rows="4" name="message"></textarea>
             </div>
+            <div>
+                <%
+
+                if (request.getAttribute("invalid") != null) {
+                %>
+                    <p style="color: red;">Invalid Data</p>
+                <%
+
+                request.removeAttribute("invalid");
+                }
+
+                %>
+            </div>
             <div class="submit">
                 <input type="submit" id="sub-button"></input>
             </div>

@@ -23,14 +23,14 @@
         </div>
         <div class="menu-list">
             <form action="LogOut" method="POST" class="form">
-                <p>User Name </p>
+                <p><%=session.getAttribute("user")%></p>
                 <input type="submit" value="LOG OUT" class="logout"/>
             </form>
         </div>
     </header>
     <section>
         <%@page import="com.Insure.ContactForm"%>
-        <%@page import="java.util.List"%>
+        <%@page import="java.util.*"%>
         
 
         <table>
@@ -42,20 +42,29 @@
                 <th>Message</th>
             </tr>
                 <% 
+                response.setHeader("Pragma","no-cache");
+                response.setHeader("Cache-Control","no-store");
+                response.setHeader("Expires","0");
+                response.setDateHeader("Expires",-1);
+                
 
-                List<ContactForm> list = (List<ContactForm>)request.getAttribute("contactform");
-                    for(ContactForm contactform: list) {
-                %>
-                <tr>
-                    <td><%=contactform.getFname()%></td>
-                    <td><%=contactform.getLname()%></td>
-                    <td><%=contactform.getPhoneNumber()%></td>
-                    <td><%=contactform.getEmail()%></td>
-                    <td><%=contactform.getMessage()%></td>
-                </tr>
-                <%
+                if ((String)session.getAttribute("email") == null) {
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
+                } else {
+                    List<ContactForm> list = (List<ContactForm>)session.getAttribute("contactform");
+                        for(ContactForm contactform: list) {
+                    %>
+                    <tr>
+                        <td><%=contactform.getFname()%></td>
+                        <td><%=contactform.getLname()%></td>
+                        <td><%=contactform.getPhoneNumber()%></td>
+                        <td><%=contactform.getEmail()%></td>
+                        <td><%=contactform.getMessage()%></td>
+                    </tr>
+                    <%
+                        }
                     }
-                %>
+                    %>
         </table>
     </section>
 </body>

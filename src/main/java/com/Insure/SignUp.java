@@ -23,14 +23,10 @@ public class SignUp extends HttpServlet {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Form");
         EntityManager em = emf.createEntityManager();
 
-        if(em.find(Credential.class, credential.getEmail()) == null) {
-            em.getTransaction().begin();
-            em.persist(credential);
-            em.getTransaction().commit();
-            response.sendRedirect("login.jsp");
-        } else {
-            //Already contains email in database
-        }
+        em.getTransaction().begin();
+        em.persist(credential);
+        em.getTransaction().commit();
+        response.sendRedirect("login.jsp");
 
         em.close();
         emf.close();

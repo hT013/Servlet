@@ -1,6 +1,13 @@
 <jsp:include page="header.jsp"/>
 
 <section id="section">
+    <%
+
+    if ((String)session.getAttribute("email") != null) {
+        request.getRequestDispatcher("show-data.jsp").forward(request, response);
+    }
+
+    %>
     <div class="mobile-section">
         <img src="images/image-intro-mobile.jpg" class="main-image-mobile">
         <div class="middle">

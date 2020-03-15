@@ -1,10 +1,8 @@
 package com.Insure;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.*;
 
-import javax.management.Query;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -25,9 +23,12 @@ public class LogIn extends HttpServlet {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Form");
         EntityManager em = emf.createEntityManager();
+        HttpSession session = request.getSession();
 
         Credential credential = em.find(Credential.class, email);
-        if(credential != null && credential.getPassword().equals(password)) {
+        if (credential != null  && credential.getPassword() != null && credential.getPassword().equals(password)) {
+            session.setAttribute("user", credential.getUserName());
+            session.setAttribute("email", email);
             em.getTransaction().begin();
             CriteriaBuilder cb = em.getCriteriaBuilder();
             CriteriaQuery<ContactForm>  cq = cb.createQuery(ContactForm.class);
@@ -36,10 +37,11 @@ public class LogIn extends HttpServlet {
             TypedQuery query = em.createQuery(select);
             List<ContactForm> list = query.getResultList();
             em.getTransaction().commit();
-            request.setAttribute("contactform", list);
+            session.setAttribute("contactform", list);
             request.getRequestDispatcher("show-data.jsp").forward(request, response);
         } else {
-            //Invalid credentials
+            request.setAttribute("exist", "exist");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 
