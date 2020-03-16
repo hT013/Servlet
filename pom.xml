@@ -41,8 +41,10 @@
   <build>
     <finalName>WebProject</finalName>
     <pluginManagement>
+
   <plugins>
-    <!-- <plugin>
+  <!--  Uncomment for tomcat deployment in your system  -->
+    <!--<plugin>
       <groupId>org.apache.tomcat.maven</groupId>
       <artifactId>tomcat7-maven-plugin</artifactId>
       <version>2.2</version>
@@ -54,18 +56,20 @@
       </configuration>
     </plugin> -->
     
+    <!--  Uncomment this for embedded tomcat
+          Command to run :   mvn org.codehaus.cargo:cargo-maven2-plugin:run -->
     <plugin>
-  <groupId>org.codehaus.cargo</groupId>
-  <artifactId>cargo-maven2-plugin</artifactId>
-  <version>1.7.6</version>
-  <configuration> 
+      <groupId>org.codehaus.cargo</groupId>
+      <artifactId>cargo-maven2-plugin</artifactId>
+      <version>1.7.6</version>
+      <configuration> 
    
-    <container>
-      <containerId>tomcat9x</containerId>
-      <type>embedded</type>
-    </container>
-  </configuration>
-</plugin>
+        <container>
+          <containerId>tomcat9x</containerId>
+          <type>embedded</type>
+        </container>
+      </configuration>
+    </plugin>
 
   </plugins> 
 </pluginManagement>
