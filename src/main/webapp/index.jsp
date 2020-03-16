@@ -4,7 +4,7 @@
     <%
 
     if ((String)session.getAttribute("email") != null) {
-        request.getRequestDispatcher("show-data.jsp").forward(request, response);
+        response.sendRedirect("show-data.jsp");
     }
 
     %>

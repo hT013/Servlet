@@ -1,5 +1,7 @@
 package com.Insure;
 
+import static com.Insure.Constant.*;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -13,13 +15,13 @@ public class FormSubmit extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IllegalStateException {
         ContactForm contactForm = new ContactForm();
-        contactForm.setFname(request.getParameter("fname"));
-        contactForm.setLname(request.getParameter("lname"));
-        contactForm.setPhoneNumber(request.getParameter("phone"));
-        contactForm.setEmail(request.getParameter("email"));
-        contactForm.setMessage(request.getParameter("message"));
+        contactForm.setFname(request.getParameter(FNAME));
+        contactForm.setLname(request.getParameter(LNAME));
+        contactForm.setPhoneNumber(request.getParameter(PHONE));
+        contactForm.setEmail(request.getParameter(E_MAIL));
+        contactForm.setMessage(request.getParameter(MESSAGE));
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Form");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_NAME);
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();

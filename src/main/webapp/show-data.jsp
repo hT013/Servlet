@@ -15,6 +15,17 @@
     </style>
 </head>
 <body>
+    <%
+
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    response.setHeader("Pragma", "no-cache");
+    response.setHeader("Expires", "0");
+
+    if (session.getAttribute("email") == null) {
+        response.sendRedirect("login.jsp");
+    }
+
+    %>
     <header class="header-class">
         <div class="mobile-header">
             <nav class="insure-icon">
@@ -42,18 +53,11 @@
                 <th>Message</th>
             </tr>
                 <% 
-                response.setHeader("Pragma","no-cache");
-                response.setHeader("Cache-Control","no-store");
-                response.setHeader("Expires","0");
-                response.setDateHeader("Expires",-1);
                 
-
-                if ((String)session.getAttribute("email") == null) {
-                    request.getRequestDispatcher("login.jsp").forward(request, response);
-                } else {
-                    List<ContactForm> list = (List<ContactForm>)session.getAttribute("contactform");
+                List<ContactForm> list = (List<ContactForm>)session.getAttribute("contactform");
+                    if (list != null) {
                         for(ContactForm contactform: list) {
-                    %>
+                %>
                     <tr>
                         <td><%=contactform.getFname()%></td>
                         <td><%=contactform.getLname()%></td>
@@ -61,10 +65,11 @@
                         <td><%=contactform.getEmail()%></td>
                         <td><%=contactform.getMessage()%></td>
                     </tr>
-                    <%
+                <%
                         }
+                        session.removeAttribute("contactform");
                     }
-                    %>
+                %>
         </table>
     </section>
 </body>

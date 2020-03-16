@@ -58,8 +58,8 @@
   <groupId>org.codehaus.cargo</groupId>
   <artifactId>cargo-maven2-plugin</artifactId>
   <version>1.7.6</version>
-  <configuration>
-  <port>9090</port> 
+  <configuration> 
+   
     <container>
       <containerId>tomcat9x</containerId>
       <type>embedded</type>

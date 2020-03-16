@@ -2,6 +2,8 @@ package com.Insure;
 
 import java.io.IOException;
 
+import static com.Insure.Constant.*;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -16,17 +18,17 @@ public class SignUp extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
 
         Credential credential = new Credential();
-        credential.setUserName(request.getParameter("uname"));
-        credential.setEmail(request.getParameter("email"));
-        credential.setPassword(request.getParameter("password"));
+        credential.setUserName(request.getParameter(UNAME));
+        credential.setEmail(request.getParameter(E_MAIL));
+        credential.setPassword(request.getParameter(PASSWORD));
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("Form");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_NAME);
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
         em.persist(credential);
         em.getTransaction().commit();
-        response.sendRedirect("login.jsp");
+        response.sendRedirect(LOGIN);
 
         em.close();
         emf.close();
