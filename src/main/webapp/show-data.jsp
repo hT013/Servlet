@@ -67,7 +67,6 @@
                     </tr>
                 <%
                         }
-                        session.removeAttribute("contactform");
                     }
                 %>
         </table>
