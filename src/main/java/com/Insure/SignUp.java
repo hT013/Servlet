@@ -1,6 +1,7 @@
 package com.Insure;
 
 import java.io.IOException;
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
 import static com.Insure.Constant.*;
 
@@ -20,7 +21,7 @@ public class SignUp extends HttpServlet {
         Credential credential = new Credential();
         credential.setUserName(request.getParameter(UNAME));
         credential.setEmail(request.getParameter(E_MAIL));
-        credential.setPassword(request.getParameter(PASSWORD));
+        credential.setPassword(BCrypt.withDefaults().hashToString(12, request.getParameter(PASSWORD).toCharArray()));
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_NAME);
         EntityManager em = emf.createEntityManager();

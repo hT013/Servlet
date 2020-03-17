@@ -2,6 +2,7 @@ package com.Insure;
 
 import java.io.IOException;
 import java.util.*;
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
 import static com.Insure.Constant.*;
 
@@ -28,7 +29,7 @@ public class LogIn extends HttpServlet {
         HttpSession session = request.getSession();
 
         Credential credential = em.find(Credential.class, email);
-        if (credential != null  && credential.getPassword() != null && credential.getPassword().equals(password)) {
+        if (credential != null  && credential.getPassword() != null && BCrypt.verifyer().verify(password.toCharArray(),credential.getPassword()).verified){
 
             session.setAttribute(USER, credential.getUserName());
             session.setAttribute(E_MAIL, email);
