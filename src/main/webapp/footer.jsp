@@ -41,7 +41,7 @@
                     <a href="#" class="footer-list-link">Sales</a>
                     <a href="#" class="footer-list-link">Support</a>
                     <a href="#" class="footer-list-link">Live chat</a>
-                    <a href="contact-page.jsp" class="footer-list-link">Contact Form</a>
+                    <a href="contact-page.html" class="footer-list-link">Contact Form</a>
                 </div>
             </dis>
             <dis class="box">
