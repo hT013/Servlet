@@ -68,9 +68,14 @@ function sendData() {
         },
         body: JSON.stringify(obj)
       })
-      .then((response) => response.json());
-      alert("Success");
-      location.reload(true); 
+      .then((response) => {
+        if(response.status === 200) {
+            alert("Success");
+            location.reload(true); 
+        } else{
+            alert("Problem in submiting form");
+        }
+      });
     } else{
       alert("Enter all values");
     }
