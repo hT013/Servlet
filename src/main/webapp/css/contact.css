@@ -15,7 +15,9 @@
 
 .heading-contact{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding-bottom: 5%;
 }
 
@@ -27,6 +29,7 @@
 #fname{
     background-color: gainsboro;
     padding: 2% 2%;
+    margin-left: 3%;
     margin-right: 5%;
     border: none;
     width: 40%;
@@ -44,19 +47,19 @@
 #phone{
     background-color: gainsboro;
     border: none;
-    width: 40%;
+    width: 86%;
     border-bottom: 2px solid #550000;
     padding: 2% 2%;
-    margin: 2% 2%;
+    margin: 2% 5%;
 }
 
 #email{
     background-color: gainsboro;
     border: none;
     border-bottom: 2px solid #550000;
-    width: 60%;
+    width: 86%;
     padding: 2% 2%;
-    margin: 2% 2%;
+    margin: 2% 5%;
 }
 
 #message{
@@ -64,8 +67,8 @@
     border: none;
     border-bottom: 2px solid #550000;
     padding: 2% 2%;
-    margin: 4% 2%;
-    width: 90%;
+    margin: 4% 5%;
+    width: 86%;
 }
 
 #sub-button{

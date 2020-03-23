@@ -1,10 +1,10 @@
-package com.Insure;
+package com.mountblue.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
-public class Credential {
+@Entity(name = "users")
+public class Users {
 
     @Id
     private String email;

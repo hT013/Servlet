@@ -15,61 +15,67 @@
     </style>
 </head>
 <body>
-    <%
+<%
 
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     response.setHeader("Pragma", "no-cache");
     response.setHeader("Expires", "0");
 
     if (session.getAttribute("email") == null) {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("sign-in.jsp");
     }
 
-    %>
-    <header class="header-class">
-        <div class="mobile-header">
-            <nav class="insure-icon">
-                <a href="show-data.jsp" class="insure-icon"><img src="images/logo.svg"></a>
-            </nav>
-        </div>
-        <div class="menu-list">
-            <form action="LogOut" method="POST" class="form">
-                <p><%=session.getAttribute("user")%></p>
-                <input type="submit" value="LOG OUT" class="logout"/>
-            </form>
-        </div>
-    </header>
-    <section>
-        <%@page import="com.Insure.ContactForm"%>
-        <%@page import="java.util.*"%>
-        
+%>
+<header class="header-class">
+    <div class="mobile-header">
+        <nav class="insure-icon">
+            <a href="show-data.jsp" class="insure-icon"><img src="images/logo.svg"></a>
+        </nav>
+    </div>
+    <div class="menu-list">
+        <form action="auth/signout" method="POST" class="form">
+            <p><%=session.getAttribute("user")%>
+            </p>
+            <input type="submit" value="LOG OUT" class="logout"/>
+        </form>
+    </div>
+</header>
+<section>
+    <%@page import="com.mountblue.entity.ContactUsEntry" %>
+    <%@page import="java.util.*" %>
 
-        <table>
-            <tr>
-                <th>Fname</th>
-                <th>Lname</th>
-                <th>Phone No.</th>
-                <th>Email</th>
-                <th>Message</th>
-            </tr>
-                <% 
-                
-                List<ContactForm> list = (List<ContactForm>)session.getAttribute("contactform");
-                    if (list != null) {
-                        for(ContactForm contactform: list) {
-                %>
-                    <tr>
-                        <td><%=contactform.getFname()%></td>
-                        <td><%=contactform.getLname()%></td>
-                        <td><%=contactform.getPhoneNumber()%></td>
-                        <td><%=contactform.getEmail()%></td>
-                        <td><%=contactform.getMessage()%></td>
-                    </tr>
-                <%
-                        }
-                    }
-                %>
-        </table>
-    </section>
+
+    <table>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phone No.</th>
+            <th>Email</th>
+            <th>Message</th>
+        </tr>
+        <%
+
+            List<ContactUsEntry> list = (List<ContactUsEntry>) session.getAttribute("contactform");
+            if (list != null) {
+                for (ContactUsEntry contactUsEntry : list) {
+        %>
+        <tr>
+            <td><%=contactUsEntry.getFname()%>
+            </td>
+            <td><%=contactUsEntry.getLname()%>
+            </td>
+            <td><%=contactUsEntry.getPhoneNumber()%>
+            </td>
+            <td><%=contactUsEntry.getEmail()%>
+            </td>
+            <td><%=contactUsEntry.getMessage()%>
+            </td>
+        </tr>
+        <%
+                }
+            }
+        %>
+    </table>
+</section>
 </body>
 </html>
