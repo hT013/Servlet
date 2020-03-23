@@ -21,10 +21,12 @@ public class FilterEmail implements Filter {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_NAME);
         EntityManager em = emf.createEntityManager();
 
+        Credential credential = em.find(Credential.class, email);
+
         if (Pattern.matches(EMAIL_PATTERN, email) && !(request.getParameter(UNAME).equals(EMPTY)) 
-        && !(request.getParameter(PASSWORD).equals(EMPTY))) {
+        && !(request.getParameter(PASSWORD).equals(EMPTY)) && credential == null) {
             chain.doFilter(request, response);
-        } else if (em.find(Credential.class, email) != null) {
+        } else if (credential != null) {
             request.setAttribute(EXIST, EXIST);
             request.getRequestDispatcher(SIGNUP).forward(request, response);
         } else {
