@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="css/sign-up.css">
 </head>
 <body>
-    <header>
-        <div class="insure-icon">
-            <a href="index.jsp" class=""><img src="images/logo.svg"></a>
-        </div>
-    </header>
+
+<header>
+    <div class="insure-icon">
+        <a href="index.jsp" class=""><img src="images/logo.svg"></a>
+    </div>
+</header>

@@ -1,5 +1,5 @@
 
-.container{
+.container {
     background-color: #2c2640;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@
     padding: 2% 2%;
 }
 
-.heading-contact{
+.heading-contact {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,12 +21,12 @@
     padding-bottom: 5%;
 }
 
-.name{
+.name {
     display: flex;
     padding: 2% 2%;
 }
 
-#fname{
+#fname {
     background-color: gainsboro;
     padding: 2% 2%;
     margin-left: 3%;
@@ -36,7 +36,7 @@
     border-bottom: 2px solid #550000;
 }
 
-#lname{
+#lname {
     background-color: gainsboro;
     border: none;
     border-bottom: 2px solid #550000;
@@ -44,7 +44,7 @@
     padding: 2% 2%;
 }
 
-#phone{
+#phone {
     background-color: gainsboro;
     border: none;
     width: 86%;
@@ -53,7 +53,7 @@
     margin: 2% 5%;
 }
 
-#email{
+#email {
     background-color: gainsboro;
     border: none;
     border-bottom: 2px solid #550000;
@@ -62,7 +62,7 @@
     margin: 2% 5%;
 }
 
-#message{
+#message {
     background-color: gainsboro;
     border: none;
     border-bottom: 2px solid #550000;
@@ -71,7 +71,7 @@
     width: 86%;
 }
 
-#sub-button{
+#sub-button {
     display: block;
     margin: 5% auto;
     outline: none;
@@ -79,27 +79,28 @@
     padding: 2% 3%;
 }
 
-.id{
+.id {
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: flex-start;
 }
-@media only screen and (max-width: 700px){
-    .container{
+
+@media only screen and (max-width: 700px) {
+    .container {
         width: 80vw;
         height: 80vh;
     }
 
-    .name{
+    .name {
         flex-direction: column;
     }
 
-    #fname{
+    #fname {
         margin: 2% 0%;
     }
 
-    #lname{
+    #lname {
         margin: 2% 0%;
     }
 }

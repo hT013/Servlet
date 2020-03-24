@@ -58,8 +58,8 @@ public class Authentication extends HttpServlet {
 
     private void signUp(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Users users = new Users();
-        users.setUserName(request.getParameter(UNAME));
-        users.setEmail(request.getParameter(E_MAIL));
+        users.setUserName(request.getParameter(U_NAME));
+        users.setEmail(request.getParameter(E_MAIL).toLowerCase());
         users.setPassword(BCrypt.withDefaults().hashToString(12, request.getParameter(PASSWORD).toCharArray()));
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_NAME);
@@ -76,7 +76,7 @@ public class Authentication extends HttpServlet {
 
     private void signIn(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        String email = request.getParameter(E_MAIL);
+        String email = request.getParameter(E_MAIL).toLowerCase();
         String password = request.getParameter(PASSWORD);
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_NAME);
@@ -84,7 +84,7 @@ public class Authentication extends HttpServlet {
         HttpSession session = request.getSession();
 
         Users users = em.find(Users.class, email);
-        if (users != null && users.getPassword() != null && BCrypt.verifyer().verify(password.toCharArray(),
+        if (users != null && BCrypt.verifyer().verify(password.toCharArray(),
                 users.getPassword()).verified) {
 
             session.setAttribute(USER, users.getUserName());
@@ -103,7 +103,8 @@ public class Authentication extends HttpServlet {
             session.setAttribute(CONTACT_FORM, list);
             response.sendRedirect(SHOW_DATA);
         } else {
-            session.setAttribute(EXIST, EXIST);
+            session.setAttribute(TEMP_E_MAIL, email);
+            session.setAttribute(INVALID, INVALID);
             response.sendRedirect(SIGN_IN);
         }
     }

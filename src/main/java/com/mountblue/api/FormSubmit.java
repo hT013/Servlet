@@ -2,7 +2,6 @@ package com.mountblue.api;
 
 import static com.mountblue.constant.Constant.*;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -26,14 +25,8 @@ public class FormSubmit extends HttpServlet {
         Response resp = new Response();
 
         try {
-            StringBuffer string = new StringBuffer();
-            String line;
-            BufferedReader reader = request.getReader();
-            while ((line = reader.readLine()) != null) {
-                string.append(line);
-            }
             Gson gson = new Gson();
-            ContactUsEntry contactUsEntry = gson.fromJson(string.toString(), ContactUsEntry.class);
+            ContactUsEntry contactUsEntry = (ContactUsEntry) request.getAttribute(OBJECT);
             EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_NAME);
             EntityManager em = emf.createEntityManager();
             em.getTransaction().begin();
@@ -51,7 +44,7 @@ public class FormSubmit extends HttpServlet {
 
     }
 
-    private void sendResponse(Gson gson, HttpServletResponse response, Response resp) {
+    public void sendResponse(Gson gson, HttpServletResponse response, Response resp) {
         PrintWriter out;
         try {
             out = response.getWriter();

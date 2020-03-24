@@ -29,14 +29,14 @@
 <header class="header-class">
     <div class="mobile-header">
         <nav class="insure-icon">
-            <a href="show-data.jsp" class="insure-icon"><img src="images/logo.svg"></a>
+            <a href="index.jsp" class="insure-icon"><img src="images/logo.svg"></a>
         </nav>
     </div>
     <div class="menu-list">
         <form action="auth/signout" method="POST" class="form">
             <p><%=session.getAttribute("user")%>
             </p>
-            <input type="submit" value="LOG OUT" class="logout"/>
+            <input type="submit" value="SIGN OUT" class="signout"/>
         </form>
     </div>
 </header>

@@ -1,26 +1,26 @@
-body{
+body {
     font-family: Karla;
 }
 
-.mobile-header{
+.mobile-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 5% 7%;
 }
 
-#hamburger-menu{
+#hamburger-menu {
     display: none;
 }
 
-.menu-list1{
+.menu-list1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10%;
 }
 
-.menu-list-val1{
+.menu-list-val1 {
     font-size: x-large;
     color: white;
     text-decoration: none;
@@ -30,11 +30,11 @@ body{
     white-space: nowrap;
 }
 
-.menu-list{
+.menu-list {
     display: none;
 }
 
-.menu-list-button1{
+.menu-list-button1 {
     color: #ffffff;
     background-color: transparent;
     padding-top: 5%;
@@ -47,23 +47,23 @@ body{
     outline: none;
 }
 
-#image-menu{
+#image-menu {
     outline: none;
 }
 
-#menu-bg-image{
+#menu-bg-image {
     display: inline-block;
     width: 100%;
     height: auto;
 }
 
-@media only screen and (min-width: 700px){
+@media only screen and (min-width: 700px) {
 
-    .class-button{
+    .class-button {
         display: none;
     }
 
-    .header-class{
+    .header-class {
         display: flex;
         justify-content: space-between;
         white-space: nowrap;
@@ -71,27 +71,27 @@ body{
         width: 80%;
     }
 
-    .menu-list{
+    .menu-list {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .mobile-header{
+    .mobile-header {
         margin: 0;
     }
 
-    .menu-list-button:hover{
+    .menu-list-button:hover {
         background-color: #000000;
         color: #ffffff;
         cursor: pointer;
     }
 
-    .menu-list-val:hover{
+    .menu-list-val:hover {
         color: #000000;
     }
 
-    .menu-list-button{
+    .menu-list-button {
         border: #000000 solid;
         font-size: medium;
         text-decoration: solid;
@@ -100,12 +100,12 @@ body{
         outline: none;
     }
 
-    .hr-header{
+    .hr-header {
         margin-left: 1.5vw;
         height: 100%;
     }
 
-    .menu-list-val{
+    .menu-list-val {
         color: #888788;
         font-size: large;
         text-decoration: none;
@@ -113,15 +113,15 @@ body{
         padding-right: 1.5vw;
     }
 
-    .insure-icon{
+    .insure-icon {
         outline: none;
     }
 
-    .cred-button:hover{
+    .cred-button:hover {
         color: #000000;
     }
 
-    .cred-button{
+    .cred-button {
         color: #888788;
         font-size: large;
         text-decoration: none;

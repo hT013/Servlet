@@ -1,0 +1,21 @@
+.menu-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signout:hover {
+    color: white;
+    background-color: #2c2640;
+    cursor: pointer;
+}
+
+.signout {
+    border: #000000 solid;
+    font-size: medium;
+    text-decoration: solid;
+    background-color: #ffffff;
+    padding: 10px 25px;
+    outline: none;
+    margin-left: 20%;
+}

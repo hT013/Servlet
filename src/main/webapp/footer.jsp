@@ -25,17 +25,17 @@
                     <a href="#" class="footer-list-link">View Plans</a>
                     <a href="#" class="footer-list-link">Reviews</a>
                 </div>
-             </div>
-             <div class="box">
-                 <p class="footer-heading">Help me</p>
-                 <div class="list">
-                     <a href="#" class="footer-list-link">faq</a>
-                     <a href="#" class="footer-list-link">Terms of use</a>
-                     <a href="#" class="footer-list-link">Privacy policy</a>
-                     <a href="#" class="footer-list-link">Cookies</a>
-                 </div>
-             </div>
-             <dis class="box">
+            </div>
+            <div class="box">
+                <p class="footer-heading">Help me</p>
+                <div class="list">
+                    <a href="#" class="footer-list-link">faq</a>
+                    <a href="#" class="footer-list-link">Terms of use</a>
+                    <a href="#" class="footer-list-link">Privacy policy</a>
+                    <a href="#" class="footer-list-link">Cookies</a>
+                </div>
+            </div>
+            <dis class="box">
                 <p class="footer-heading">Contact</p>
                 <div class="list">
                     <a href="#" class="footer-list-link">Sales</a>
